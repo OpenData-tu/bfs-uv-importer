@@ -34,7 +34,7 @@ public class BsfImporter {
         for (UVSensor sensor : sensors) {
             builder.append(UVSensorJsonSchemaCreator.create(sensor) + ",");
         }
-        builder.deleteCharAt(builder.length());
+        builder.deleteCharAt(builder.length() - 1);
         builder.append("]");
 
         System.out.println("Sending json to Kafka queue on " + kafkaServer);

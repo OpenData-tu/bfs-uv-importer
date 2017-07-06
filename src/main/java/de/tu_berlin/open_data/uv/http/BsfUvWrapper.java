@@ -14,6 +14,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Created by Oliver Bruski on 04.07.2017.
@@ -83,7 +84,7 @@ public class BsfUvWrapper {
      * @return The Date converted into a DateTime compliant with the ISO-8601 format.
      */
     private static LocalDateTime parseDateToIsoString(String dateInput){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("eeee, dd.MM.yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("eeee, dd.MM.yyyy", Locale.GERMANY);
         LocalDate date = LocalDate.from(dtf.parse(dateInput));
         LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.MIDNIGHT);
         return dateTime;
