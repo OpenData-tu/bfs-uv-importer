@@ -1,0 +1,114 @@
+{
+  "messstationen": [
+    {
+      "gml_id": "EMF_STATION_UV_München",
+      "name": "München",
+      "coord": [
+        48.220000,
+        11.590000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Zingst",
+      "name": "Zingst",
+      "coord": [
+        54.440000,
+        12.720000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Langen",
+      "name": "Langen",
+      "coord": [
+        50.000000,
+        8.650000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Schauinsland",
+      "name": "Schauinsland",
+      "coord": [
+        47.910000,
+        7.910000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Lindenberg",
+      "name": "Lindenberg",
+      "coord": [
+        52.210000,
+        14.120000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Sylt",
+      "name": "Sylt",
+      "coord": [
+        54.920000,
+        8.310000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Dortmund",
+      "name": "Dortmund",
+      "coord": [
+        51.500000,
+        7.420000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Kulmbach",
+      "name": "Kulmbach",
+      "coord": [
+        50.110000,
+        11.450000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Rinteln",
+      "name": "Rinteln",
+      "coord": [
+        52.170000,
+        9.060000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    },
+    {
+      "gml_id": "EMF_STATION_UV_Norderney",
+      "name": "Norderney",
+      "coord": [
+        53.710000,
+        7.210000
+      ],
+      "mediaMonitored": "air",
+      "measurementRegime": "periodicDataCollection",
+      "mobile": false
+    }
+  ]
+}
