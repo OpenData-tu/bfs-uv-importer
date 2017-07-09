@@ -24,7 +24,7 @@ public class UVSensorJsonSchemaCreator{
         ObjectNode mainObject = nodeFactory.objectNode();
 
         mainObject.put("source_id", "bsf_uvindex");
-        mainObject.put("device", sensor.getSensorId());
+        mainObject.put("device", sensor.getSensorId() != null ? sensor.getSensorId() : "");
         mainObject.put("timestamp", sensor.getTimestamp().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) + "Z");
 
 
@@ -41,7 +41,7 @@ public class UVSensorJsonSchemaCreator{
 
         ObjectNode secondLevelChild = nodeFactory.objectNode();
         secondLevelChild.put("sensor", sensor.getSensorType());
-        secondLevelChild.put("observation_value", Double.isNaN(Double.parseDouble(sensor.getMeasurement())) ? 0.0 : Double.parseDouble(sensor.getMeasurement()));
+        secondLevelChild.put("observation_value", stringToDouble(sensor.getMeasurement()));
         secondLevelChild.put("unit", sensor.getUnit());
         firstLevelChild.set("uv-radiation", secondLevelChild);
 
@@ -53,6 +53,15 @@ public class UVSensorJsonSchemaCreator{
         mainObject.set("extra", firstLevelChild);
 
         return mainObject.toString();
+    }
+
+    private static Double stringToDouble(String value){
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e){
+            return 0.0;
+        }
+
     }
 
 }

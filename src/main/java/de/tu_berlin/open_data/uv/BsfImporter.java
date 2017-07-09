@@ -34,23 +34,16 @@ public class BsfImporter {
             throw new Exception(String.format("Env var %s was not present", KAFKA_SERVER_ENV_VAR_KEY));
         }
 
-        ArrayList<UVSensor> sensors = BsfUvWrapper.getSensorListFromUrl();
-        StringBuilder builder = new StringBuilder();
-        builder.append("[");
-        for (UVSensor sensor : sensors) {
-            builder.append(UVSensorJsonSchemaCreator.create(sensor) + ",");
-        }
-        builder.deleteCharAt(builder.length() - 1);
-        builder.append("]");
 
         System.out.println("Sending json to Kafka queue on " + kafkaServer);
         KafkaQueue kafkaQueue = new KafkaQueue(kafkaTopic, kafkaServer);
-        Future<RecordMetadata> future = kafkaQueue.publish(builder.toString());
-        System.out.println("Done!");
 
-        System.out.println("Waiting for Kafka to acknowledge...");
-        RecordMetadata rm = future.get();
-        System.out.println(String.format("Topic: %s. Offset: %s. Partition: %s", rm.topic(), rm.offset(), rm.partition()));
+        ArrayList<UVSensor> sensors = BsfUvWrapper.getSensorListFromUrl();
+        for (UVSensor sensor : sensors) {
+            Future<RecordMetadata> future = kafkaQueue.publish(UVSensorJsonSchemaCreator.create(sensor));
+            RecordMetadata rm = future.get();
+            System.out.println(String.format("Topic: %s. Offset: %s. Partition: %s", rm.topic(), rm.offset(), rm.partition()));
+        }
 
         System.out.println("Done importing! Tschüss!");
     }
