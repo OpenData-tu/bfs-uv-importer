@@ -15,8 +15,8 @@ import java.util.concurrent.Future;
  */
 public class BsfImporter {
 
-    private static final String IMPORTER_ID = "BSF_UV";
     private static final String KAFKA_SERVER_ENV_VAR_KEY = "KAFKA_HOST";
+    private static final String KAFKA_TOPIC_ENV_VAR_KEY = "KAFKA_TOPIC";
 
     public static void main(String[] args) throws Exception {
 
@@ -25,6 +25,12 @@ public class BsfImporter {
         final String kafkaServer = System.getenv(KAFKA_SERVER_ENV_VAR_KEY);
 
         if (kafkaServer == null || kafkaServer.isEmpty()) {
+            throw new Exception(String.format("Env var %s was not present", KAFKA_SERVER_ENV_VAR_KEY));
+        }
+
+        final String kafkaTopic = System.getenv(KAFKA_TOPIC_ENV_VAR_KEY);
+
+        if(kafkaTopic == null || kafkaTopic.isEmpty()) {
             throw new Exception(String.format("Env var %s was not present", KAFKA_SERVER_ENV_VAR_KEY));
         }
 
@@ -38,7 +44,7 @@ public class BsfImporter {
         builder.append("]");
 
         System.out.println("Sending json to Kafka queue on " + kafkaServer);
-        KafkaQueue kafkaQueue = new KafkaQueue(IMPORTER_ID, kafkaServer);
+        KafkaQueue kafkaQueue = new KafkaQueue(kafkaTopic, kafkaServer);
         Future<RecordMetadata> future = kafkaQueue.publish(builder.toString());
         System.out.println("Done!");
 
@@ -47,7 +53,6 @@ public class BsfImporter {
         System.out.println(String.format("Topic: %s. Offset: %s. Partition: %s", rm.topic(), rm.offset(), rm.partition()));
 
         System.out.println("Done importing! Tschüss!");
-
     }
 
 }
