@@ -3,8 +3,9 @@ Importer for the UV-Radiation Index of the Bundesministerium für Strahlenschutz
 
 ## Run the Docker
 ```sh
-$ docker run --env KAFKA_HOST=hostname:port aardila/bsf-uv-importer
+$ docker run --env KAFKA_HOST=hostname:port --env KAFKA_TOPIC=topicName olib10/bsf-uv-importer
 ```
 
 #### Mandatory enviroment variables:
 - KAFKA_HOST
+- KAFKA_TOPIC
