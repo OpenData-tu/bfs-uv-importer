@@ -1,4 +1,4 @@
-package de.tu_berlin.open_data.uv.service;
+package de.tu_berlin.open_data.uv.model;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -8,7 +8,7 @@ import de.tu_berlin.open_data.uv.model.UVSensor;
  * Created by Oliver Bruski on 04.07.2017.
  * Class to create the JSON schema from a UVSensor Object.
  */
-public class UVSensorJsonSchemaCreator{
+public class UVSensorJsonSerializer {
 
     /**
      * Creates the JSON schema for the given UVSensor.
@@ -47,7 +47,7 @@ public class UVSensorJsonSchemaCreator{
         mainObject.set("sensors", firstLevelChild);
         firstLevelChild = nodeFactory.objectNode();
 
-        firstLevelChild.put("location", sensor.getLocation());
+        firstLevelChild.put("location_name", sensor.getLocation());
         mainObject.set("extra", firstLevelChild);
 
         return mainObject.toString();

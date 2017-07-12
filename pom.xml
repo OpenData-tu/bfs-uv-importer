@@ -73,7 +73,7 @@
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>de.tu_berlin.open_data.uv.BsfImporter</mainClass>
+                                    <mainClass>de.tu_berlin.open_data.uv.BfsImporter</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>

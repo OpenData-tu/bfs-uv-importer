@@ -1,4 +1,4 @@
-package de.tu_berlin.open_data.uv.http;
+package de.tu_berlin.open_data.uv;
 
 import de.tu_berlin.open_data.uv.model.Coordinates;
 import de.tu_berlin.open_data.uv.model.UVSensor;
@@ -18,7 +18,7 @@ import java.util.Locale;
  * Created by Oliver Bruski on 04.07.2017.
  * Downloads the HTML file from BSF and parses it to get the measurement data for UV radiation.
  */
-public class BsfUvWrapper {
+public class BfsUvWrapper {
 
     private static HashMap<String, Coordinates> stations = new HashMap<String, Coordinates>();
 
