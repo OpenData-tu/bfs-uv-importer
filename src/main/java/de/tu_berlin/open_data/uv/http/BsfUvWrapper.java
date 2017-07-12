@@ -9,8 +9,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,7 +60,7 @@ public class BsfUvWrapper {
                     UVSensor sensor = new UVSensor();
                     Elements cells = row.getElementsByTag("td");
                     if(cells.size() != 0) {
-                        sensor.setTimestamp(parseDateToIsoString(date));
+                        sensor.setDate(parseDateToDateObject(date));
                         sensor.setLocation(cells.eq(0).text());
                         sensor.setMeasurement(cells.eq(1).text());
                         sensor.setUnit("UV-Index");
@@ -83,11 +81,11 @@ public class BsfUvWrapper {
      * @param dateInput Date String of the Format "Day of Week(text), DD.MM.YYYY" to be converted.
      * @return The Date converted into a DateTime compliant with the ISO-8601 format.
      */
-    private static LocalDateTime parseDateToIsoString(String dateInput){
+    private static LocalDate parseDateToDateObject(String dateInput){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("eeee, dd.MM.yyyy", Locale.GERMANY);
         LocalDate date = LocalDate.from(dtf.parse(dateInput));
-        LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.MIDNIGHT);
-        return dateTime;
+//        LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.MIDNIGHT);
+        return date;
     }
 
 }

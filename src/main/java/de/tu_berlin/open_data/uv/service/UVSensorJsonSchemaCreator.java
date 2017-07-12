@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import de.tu_berlin.open_data.uv.model.UVSensor;
 
-import java.time.format.DateTimeFormatter;
-
 /**
  * Created by Oliver Bruski on 04.07.2017.
  * Class to create the JSON schema from a UVSensor Object.
@@ -25,7 +23,7 @@ public class UVSensorJsonSchemaCreator{
 
         mainObject.put("source_id", "bsf_uvindex");
         mainObject.put("device", sensor.getSensorId() != null ? sensor.getSensorId() : "");
-        mainObject.put("timestamp", sensor.getTimestamp().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) + "Z");
+        mainObject.put("timestamp", sensor.getDate().toString());
 
 
         ObjectNode firstLevelChild = nodeFactory.objectNode();

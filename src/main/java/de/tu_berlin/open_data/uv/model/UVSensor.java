@@ -1,6 +1,6 @@
 package de.tu_berlin.open_data.uv.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * Created by Oliver Bruski on 04.07.2017.
@@ -12,7 +12,7 @@ public class UVSensor {
     private String sensorType;
     private String location;
     private Coordinates coordinates;
-    private LocalDateTime timestamp;
+    private LocalDate date;
     private String measurement;
     private String unit;
 
@@ -57,12 +57,12 @@ public class UVSensor {
         this.coordinates = coordinates;
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public String getMeasurement() {
